@@ -1,0 +1,44 @@
+type Workout {
+  id: ID! @unique
+  plannedDate: DateTime!
+  plannedKm: Float
+  plannedMinutes: Float!
+  plannedType: String!
+  plannedSport: String!
+  plannedInformation: String
+  activityData: Json
+  actualDate: DateTime
+  actualKm: Float
+  actualMinutes: Float
+  actualType: String
+  actualSport: String
+}
+
+type Measurement {
+  id: ID! @unique
+  date: DateTime!
+  weight: Float!
+  waist: Float!
+  thigh: Float!
+  hips: Float!
+}
+
+type WorkoutTemplate {
+  id: ID! @unique
+  type: String!
+  sport: String!
+  time: Float!
+  km: Float
+  notes: String
+  workout: Json
+}
+
+type WorkoutType {
+  id: ID! @unique
+  name: String! @unique
+}
+
+type Sport {
+  id: ID! @unique
+  name: String! @unique
+}

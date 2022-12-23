@@ -1,0 +1,45 @@
+# import Workout from "../database/schema.generated.graphql"
+# import Measurement from "../database/schema.generated.graphql"
+# import WorkoutTemplate from "../database/schema.generated.graphql"
+# import WorkoutType from "../database/schema.generated.graphql"
+# import Sport from "../database/schema.generated.graphql"
+
+type Query {
+  workout: Workout!
+  workouts: [Workout!]!
+  workoutsBetweenDates(start: String!, stop: String!): [Workout!]!
+  workoutTemplate: WorkoutTemplate!
+  workoutTemplates: [WorkoutTemplate!]!
+  workoutTypes: [WorkoutType!]!
+  sports: [Sport!]!
+  measurement: Measurement!
+  measurements: [Measurement!]!
+}
+
+type Mutation {
+  createWorkout(
+    plannedDate: DateTime!
+    plannedMinutes: Float!
+    plannedType: String!
+    plannedSport: String!
+    plannedKm: Float
+    plannedInformation: String
+  ): Workout
+
+  createMeasurement(
+    date: DateTime!
+    weight: Float!
+    waist: Float!
+    thigh: Float!
+    hips: Float!
+  ): Measurement
+
+  createWorkoutTemplate(
+    type: String!
+    sport: String!
+    time: Float!
+    km: Float
+    notes: String
+    workout: Json
+  ): WorkoutTemplate
+}

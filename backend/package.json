@@ -1,0 +1,27 @@
+{
+  "name": "klassiker",
+  "scripts": {
+    "start": "dotenv -- nodemon -x ts-node -e ts,graphql src/index.ts",
+    "debug": "dotenv -- nodemon -x 'ts-node --inspect' -e ts,graphql src/index.ts",
+    "playground": "graphql playground",
+    "build": "rimraf dist && tsc",
+    "deploy": "now --public --dotenv .env.prod && now alias && now rm --yes --safe klassiker",
+    "now-start": "node dist"
+  },
+  "dependencies": {
+    "graphcool-binding": "0.2.4",
+    "graphql-import": "0.1.8",
+    "graphql-yoga": "0.4.7"
+  },
+  "devDependencies": {
+    "dotenv-cli": "^1.4.0",
+    "nodemon": "^1.14.6",
+    "now": "^9.0.1",
+    "rimraf": "^2.6.2",
+    "ts-node": "4.0.2",
+    "typescript": "2.6.2"
+  },
+  "now": {
+    "alias": "klassiker"
+  }
+}
